@@ -1,4 +1,4 @@
-package com.company;
+package Aula03;
 
 import java.awt.Component;
 import javax.swing.JOptionPane;
