@@ -15,7 +15,7 @@ public class Main {
             System.out.println("Digite 4 para remover uma série pelo nome: ");
             System.out.println("Digite 5 para encontrar uma série pelo nome: ");
             System.out.println("Digite 6 para mostrar a quantidade de séries disponíveis:");
-            System.out.println("Digite 7 para atualizar alguma série");
+            System.out.println("Digite 7 para atualizar alguma série:");
             System.out.println("Digite 8 para encerrar o programa.");
             programa = tc.nextInt();
             switch (programa) {
@@ -26,7 +26,7 @@ public class Main {
                     break;
                 }
                 case 2: {
-
+                    System.out.println("\n --- SÉRIES DISPONÍVEIS ---:");
                     for (int i=0; i<biblioteca.size(); i++){
                         biblioteca.get(i).exibirDados();
                     }
@@ -39,7 +39,7 @@ public class Main {
                     if(apagar!=null){
                         System.out.println("A série "+apagar.nomeSerie+ " foi removida.");
                     }else{
-                        System.out.println("DESCULPE, MAS ESSA SÉRIE NÃO FOI ENCONTRADA.");
+                        System.out.println("Desculpa, mas a série "+apagar.nomeSerie+" não foi encontrada.");
                     }
                     break;
                 }
@@ -61,7 +61,7 @@ public class Main {
                     String nome = tc.next();
                     Series buscar = new Series(nome);
                     if(biblioteca.contains(buscar)){
-                        System.out.println("O número correspondente a série "+buscar.nomeSerie+ " é: "+biblioteca.indexOf(buscar)+".");
+                        System.out.println("A série "+buscar.nomeSerie+" está disponível, ela corresponde ao número "+biblioteca.indexOf(buscar)+".");
                     }else{
                         System.out.println("Desculpe, mas a série "+buscar.nomeSerie+ " não foi encontrada.");
                     }
