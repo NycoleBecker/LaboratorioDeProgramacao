@@ -13,20 +13,20 @@ public class Series {
     public String serieAssistida;
 
     public void lerDados(){
-        System.out.println("Informe o nome da série: ");
+        System.out.println("- Informe o nome da série: ");
         Scanner tc = new Scanner(System.in);
         nomeSerie = tc.nextLine();
 
-        System.out.println("Informe a sinopse da série: ");
+        System.out.println("- Informe a sinopse da série: ");
         sinopse = tc.nextLine();
 
-        System.out.println("Informe a quantidade de episódios da série: ");
+        System.out.println("- Informe a quantidade de episódios da série: ");
         qntdEpisodios = tc.nextInt();
 
-        System.out.println("Informe a quantidade de temporadas da série: ");
+        System.out.println("- Informe a quantidade de temporadas da série: ");
         qntsTemporadas = tc.nextInt();
 
-        System.out.println("Você já assistiu essa série? (sim) ou (não)");
+        System.out.println("- Você já assistiu essa série? (Sim) ou (Não)");
         serieAssistida = tc.next();
 
     }
