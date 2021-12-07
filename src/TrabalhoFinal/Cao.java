@@ -1,4 +1,4 @@
-package ListaEncadeada;
+package TrabalhoFinal;
 
 import java.util.Scanner;
 

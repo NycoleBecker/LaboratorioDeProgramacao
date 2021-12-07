@@ -3,16 +3,15 @@ import java.util.Objects;
 import java.util.Scanner;
 import java.lang.String;
 
-                                    /*  NYCOLE BECKER E BRYAN */
+       /*  NYCOLE BECKER E BRYAN */
 
 public class Series {
     public int qntdEpisodios;
-    public int qntsTemporadas;
     public String nomeSerie;
     public String sinopse;
     public String serieAssistida;
 
-    public void lerDados(){
+        public void lerDados(){
         System.out.println("- Informe o nome da série: ");
         Scanner tc = new Scanner(System.in);
         nomeSerie = tc.nextLine();
