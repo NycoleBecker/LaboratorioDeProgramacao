@@ -21,14 +21,23 @@ public class Series {
         sinopse = tc.nextLine();
 
         System.out.println("- Informe a quantidade de episódios da série: ");
-        qntdEpisodios = tc.nextInt();
+        try{
+            qntdEpisodios = tc.nextInt();
+        }catch (Exception io){
+            System.out.println("O que você digitou não é válido.");
+            lerDados();
+        }
 
         System.out.println("- Informe a quantidade de temporadas da série: ");
-        qntsTemporadas = tc.nextInt();
+        try{
+            qntsTemporadas = tc.nextInt();
+        }catch (Exception io){
+            System.out.println("O que você digitou não é válido.");
+            lerDados();
+        }
 
         System.out.println("- Você já assistiu essa série? (Sim) ou (Não)");
         serieAssistida = tc.next();
-
     }
     public Series(){
 

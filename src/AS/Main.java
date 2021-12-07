@@ -8,7 +8,8 @@ public class Main {
         ArrayList<Series> biblioteca = new ArrayList<Series>();
         Scanner tc = new Scanner(System.in);
         int programa = 0;
-        do {
+
+        while (programa != 8) {
             System.out.println("\n    ---      BEM-VINDO A NYCOLEFLIX      ---    ");
             System.out.println("\n- Digite 1 para adicionar uma série: ");
             System.out.println("- Digite 2 para listar as séries: ");
@@ -18,7 +19,13 @@ public class Main {
             System.out.println("- Digite 6 para mostrar a quantidade de séries disponíveis:");
             System.out.println("- Digite 7 para atualizar alguma série:");
             System.out.println("- Digite 8 para encerrar o programa.");
-            programa = tc.nextInt();
+
+            try {
+                programa = tc.nextInt();
+            } catch (Exception io) {
+                System.out.println("O que você digitou não é válido. Reinicie o programa.");
+                return;
+            }
             switch (programa) {
                 case 1: {
                     Series series = new Series();
@@ -28,19 +35,19 @@ public class Main {
                 }
                 case 2: {
                     System.out.println("\n      ---      SÉRIES DISPONÍVEIS         ---     ");
-                    for (int i=0; i<biblioteca.size(); i++){
+                    for (int i = 0; i < biblioteca.size(); i++) {
                         biblioteca.get(i).exibirDados();
                     }
                     break;
                 }
                 case 3: {
                     System.out.println("- Digite o número da série para removê-la: ");
-                    int posicao= tc.nextInt();
+                    int posicao = tc.nextInt();
                     Series apagar = biblioteca.remove(posicao);
-                    if(apagar!=null){
-                        System.out.println("A série "+apagar.nomeSerie+ " foi removida.");
-                    }else{
-                        System.out.println("Desculpa, mas a série "+apagar.nomeSerie+" não foi encontrada.");
+                    if (apagar != null) {
+                        System.out.println("A série " + apagar.nomeSerie + " foi removida.");
+                    } else {
+                        System.out.println("Desculpa, mas a série " + apagar.nomeSerie + " não foi encontrada.");
                     }
                     break;
                 }
@@ -49,10 +56,10 @@ public class Main {
                     System.out.println("- Digite o nome da série que deseja remover: ");
                     String nome = tc.next();
                     Series apagar = new Series(nome);
-                    if(biblioteca.remove(apagar)){
-                        System.out.println("A série "+apagar.nomeSerie+" foi removida.");
-                    }else{
-                        System.out.println("Desculpe, mas a série "+apagar.nomeSerie+ " não foi encontrada.");
+                    if (biblioteca.remove(apagar)) {
+                        System.out.println("A série " + apagar.nomeSerie + " foi removida.");
+                    } else {
+                        System.out.println("Desculpe, mas a série " + apagar.nomeSerie + " não foi encontrada.");
                     }
                     break;
                 }
@@ -61,37 +68,38 @@ public class Main {
                     System.out.println("- Digite o nome da série que deseja encontrar:");
                     String nome = tc.next();
                     Series buscar = new Series(nome);
-                    if(biblioteca.contains(buscar)){
-                        System.out.println("A série "+buscar.nomeSerie+" está disponível, ela corresponde ao número "+biblioteca.indexOf(buscar)+".");
-                    }else{
-                        System.out.println("Desculpe, mas a série "+buscar.nomeSerie+ " não foi encontrada.");
+                    if (biblioteca.contains(buscar)) {
+                        System.out.println("A série " + buscar.nomeSerie + " está disponível, ela corresponde ao número " + biblioteca.indexOf(buscar) + ".");
+                    } else {
+                        System.out.println("Desculpe, mas a série " + buscar.nomeSerie + " não foi encontrada.");
                     }
                     break;
                 }
 
                 case 6: {
-                    System.out.println("A quantidade de séries disponíveis é "+biblioteca.size()+".");
+                    System.out.println("A quantidade de séries disponíveis é " + biblioteca.size() + ".");
                     break;
                 }
 
-                case 7:{
+                case 7: {
                     System.out.println("- Digite o nome da série que deseja atualizar: ");
                     String nome = tc.next();
                     Series busca = new Series(nome);
-                    if(biblioteca.contains(busca)){
+                    if (biblioteca.contains(busca)) {
                         int i = biblioteca.indexOf(busca);
-                        Series newLivro = new Series();
-                        newLivro.lerDados();
-                        biblioteca.set(i, newLivro);
-                    }else{
-                        System.out.println("Desculpe, mas a série "+busca.nomeSerie+ " não foi encontrada.");
+                        Series newSerie = new Series();
+                        newSerie.lerDados();
+                        biblioteca.set(i, newSerie);
+                        System.out.println("A série "+busca.nomeSerie+" foi atualizada.");
+                    } else {
+                        System.out.println("Desculpe, mas a série " + busca.nomeSerie + " não foi encontrada.");
                     }
                     break;
                 }
-                case 8:{
+                case 8: {
                     System.out.println("\nPROGRAMA ENCERRADO");
                 }
             }
-        }while (programa != 8);
+        }
     }
 }
